@@ -1,0 +1,15 @@
+<h1 id="visual-analytics-module-12---graphing-a-network">Visual Analytics Module 12 - Graphing a Network</h1>
+<p>For this assignment, I will be using datasets containing the relationships found in media. I will first import the data into R and then create a matrix in order to plot the data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#import data</span>
+
+net_nodes =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/ieaoo7efx87etyk/Dataset1-Media-Example-NODES.csv?dl=1&quot;</span>)
+net_edges =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://www.dropbox.com/s/s4mli5l6j30gc5n/Dataset1-Media-Example-EDGES.csv?dl=1&quot;</span>)
+<span class="co">#Create an adjacency matrix for net_edges</span>
+net_edges_mat =<span class="st"> </span><span class="kw">as.matrix</span>(net_edges)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">p1 =<span class="st"> </span><span class="kw">plot</span>(netgraph1_wo_loops, <span class="dt">main =</span> <span class="st">&quot;Time Series Plot (Media)&quot;</span>, <span class="dt">frame =</span> <span class="ot">TRUE</span>, <span class="dt">edge.arrow.size=</span>.<span class="dv">5</span>, <span class="dt">vertex.color =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">vertex.label=</span>net_nodes$media, <span class="dt">vertex.label.color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">vertex.size =</span> <span class="dv">7</span>, <span class="dt">edge.curved =</span> .<span class="dv">5</span>, <span class="dt">edge.width=</span><span class="dv">2</span>, <span class="dt">shape=</span><span class="st">&#39;sphere&#39;</span>)</code></pre>
+<div class="figure">
+<img src="Visual-Analytics-Module-12_files/figure-markdown_github/graph%20paramaters-1.png" />
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tkplot</span>(netgraph1_wo_loops, <span class="dt">main =</span> <span class="st">&quot;Network Graph Ex&quot;</span>, <span class="dt">frame =</span> <span class="ot">TRUE</span>, <span class="dt">edge.arrow.size=</span>.<span class="dv">5</span>, <span class="dt">vertex.color =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">vertex.label=</span>net_nodes$media, <span class="dt">vertex.label.color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">vertex.size =</span> <span class="dv">7</span>, <span class="dt">vertex.label.family =</span> <span class="st">&quot;Times&quot;</span>, <span class="dt">edge.curved =</span> .<span class="dv">5</span>,)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#edge.curved range is 0-1, TRUE sets to .5</span></code></pre>
